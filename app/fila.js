@@ -1,37 +1,69 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 
 export default function Fila() {
+  const { andar, elevador } = useLocalSearchParams();
+  const router = useRouter();
+
+  const destino = Number(andar) || 1;
 
   const [posicao, setPosicao] = useState(0);
   const [mensagem, setMensagem] = useState('');
+  const [cor, setCor] = useState('#ff0055');
 
   useEffect(() => {
-    // gera posição aleatória na fila
-    const pos = Math.floor(Math.random() * 10) + 1;
+    const intervalo = setInterval(() => {
+      setPosicao((prev) => {
+        if (prev >= destino) {
+          setMensagem(`Você chegou no andar ${destino} 🎉`);
+          setCor('#00ff88');
+          clearInterval(intervalo);
+          return destino;
+        }
 
-    setPosicao(pos);
+        if (destino - prev <= 2) {
+          setMensagem(`Elevador ${elevador} chegando`);
+          setCor('#ffaa00');
+        } else {
+          setMensagem(`Elevador ${elevador} subindo...`);
+          setCor('#ff0055');
+        }
 
-    // define mensagem conforme posição
-    if (pos > 5) {
-      setMensagem('Aguardando elevador...');
-    } else {
-      setMensagem('Elevador chegando...');
-    }
+        return prev + 1;
+      });
+    }, 1500);
 
+    return () => clearInterval(intervalo);
   }, []);
 
   return (
     <View style={styles.container}>
+      <Text style={styles.titulo}>🚪 Fila do Elevador</Text>
 
-      <Text style={styles.texto}>
-        Posição na fila: {posicao}º
-      </Text>
+      <View style={styles.card}>
+        <Text style={styles.label}>Elevador</Text>
+        <Text style={[styles.valor, { color: cor }]}>{elevador}</Text>
 
-      <Text style={styles.texto}>
-        {mensagem}
-      </Text>
+        <Text style={styles.label}>Destino</Text>
+        <Text style={[styles.valor, { color: cor }]}>{destino}</Text>
 
+        <Text style={styles.label}>Andar atual</Text>
+        <Text style={[styles.valor, { color: cor }]}>{posicao}</Text>
+
+        <Text style={[styles.mensagem, { color: cor }]}>
+          {mensagem}
+        </Text>
+      </View>
+
+      <TouchableOpacity
+        style={styles.botao}
+        onPress={() => router.replace('/')}
+      >
+        <Text style={styles.botaoTexto}>
+          Solicitar outro elevador
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -39,11 +71,48 @@ export default function Fila() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#0a0a0a',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  texto: {
-    fontSize: 18,
-    marginBottom: 10,
+  titulo: {
+    fontSize: 26,
+    color: '#ff0055',
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  card: {
+    backgroundColor: '#111',
+    padding: 25,
+    borderRadius: 16,
+    alignItems: 'center',
+    width: 260,
+    marginBottom: 25,
+    borderWidth: 1,
+    borderColor: '#ff0055',
+  },
+  label: {
+    color: '#aaa',
+    fontSize: 14,
+    marginTop: 10,
+  },
+  valor: {
+    fontSize: 36,
+    fontWeight: 'bold',
+  },
+  mensagem: {
+    fontSize: 14,
+    textAlign: 'center',
+    marginTop: 10,
+  },
+  botao: {
+    backgroundColor: '#ff0055',
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    borderRadius: 8,
+  },
+  botaoTexto: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });
