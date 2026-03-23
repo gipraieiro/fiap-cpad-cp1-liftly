@@ -21,10 +21,11 @@ export default function Home() {
       <TouchableOpacity
         style={styles.botao}
         onPress={() => {
-          // TODO (Júlia): passar o valor do "andar" para a próxima tela
-          // Exemplo: usar router.push com params
-          router.push('/resultado');
-        }}
+          router.push({
+          pathname: '/resultado',
+          params: {andar: andar},
+        });
+      }}
       >
         <Text style={styles.botaoTexto}>Chamar Elevador</Text>
       </TouchableOpacity>
