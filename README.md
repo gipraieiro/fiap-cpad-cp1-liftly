@@ -1,4 +1,5 @@
 Liftly — Sistema Inteligente de Elevadores FIAP
+-----------------------------------------------
 
 Integrantes do Grupo:
 
