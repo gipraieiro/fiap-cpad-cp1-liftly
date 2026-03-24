@@ -3,53 +3,38 @@ import { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function Home() {
-  const router = useRouter();
-  // Estado para armazenar o andar digitado pelo usuário
-  const [andar, setAndar] = useState('');
-  // Novo estado para armazenar o andar atual do usuário
+  const [andarDestino, setAndarDestino] = useState('');
   const [andarAtual, setAndarAtual] = useState('');
+  const router = useRouter();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Liftly</Text>
+      <Text style={styles.titulo}>Liftly 🚀</Text>
+      <Text style={styles.subtitulo}>Chame seu elevador</Text>
 
-      {/* Novo campo: andar atual */}
       <TextInput
         style={styles.input}
-        placeholder="Em qual andar você está?"
+        placeholder="Digite o andar de destino"
+        placeholderTextColor="#888"
+        keyboardType="numeric"
+        value={andarDestino}
+        onChangeText={setAndarDestino}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Em qual andar você está"
+        placeholderTextColor="#888"
+        keyboardType="numeric"
         value={andarAtual}
         onChangeText={setAndarAtual}
       />
 
       <TouchableOpacity
         style={styles.botao}
-        onPress={() => {
-          // Após clicar em enviar, leva para a tela já existente
-          router.push({
-            pathname: '/resultado',
-            params: { andarAtual: andarAtual },
-          });
-        }}
-      >
-        <Text style={styles.botaoTexto}>Enviar</Text>
-      </TouchableOpacity>
-
-      {/* Campo já existente: andar desejado */}
-      <TextInput
-        style={styles.input}
-        placeholder="Digite o andar"
-        value={andar}
-        onChangeText={setAndar}
-      />
-
-      <TouchableOpacity
-        style={styles.botao}
-        onPress={() => {
-          router.push({
-            pathname: '/resultado',
-            params: { andar: andar },
-          });
-        }}
+        onPress={() =>
+          router.push(`/resultado?andarDestino=${andarDestino}&andarAtual=${andarAtual}`)
+        }
       >
         <Text style={styles.botaoTexto}>Chamar Elevador</Text>
       </TouchableOpacity>
@@ -58,27 +43,10 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  titulo: {
-    fontSize: 24,
-    marginBottom: 20
-  },
-  input: {
-    borderWidth: 1,
-    width: 200,
-    padding: 10,
-    marginBottom: 20
-  },
-  botao: {
-    backgroundColor: 'red',
-    padding: 12,
-    marginBottom: 20 // para dar espaço entre os botões
-  },
-  botaoTexto: {
-    color: 'white'
-  }
+  container: { flex: 1, backgroundColor: '#0a0a0a', justifyContent: 'center', alignItems: 'center' },
+  titulo: { fontSize: 32, color: '#fff', fontWeight: 'bold' },
+  subtitulo: { color: '#aaa', marginBottom: 30 },
+  input: { width: 200, borderWidth: 1, borderColor: '#ff0055', borderRadius: 10, padding: 10, color: '#fff', marginBottom: 20, textAlign: 'center' },
+  botao: { backgroundColor: '#ff0055', paddingVertical: 12, paddingHorizontal: 30, borderRadius: 10 },
+  botaoTexto: { color: '#fff', fontWeight: 'bold' },
 });
