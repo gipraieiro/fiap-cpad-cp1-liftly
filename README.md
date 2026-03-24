@@ -81,13 +81,16 @@ Pressione W para abrir no navegador.
 
 Demonstração do Aplicativo:
 
-Tela Home: (inserir print aqui)
+Tela Home:
+![Home](./assets/home.png)
 
-Tela Resultado: (inserir print aqui)
+Tela Resultado:
+![Resultado](./assets/resultado.png)
 
-Tela Fila: (inserir print aqui)
+Tela Fila:
+![Fila](./assets/fila.png)
 
-Vídeo do Aplicativo: (inserir link do vídeo ou GIF aqui)
+Vídeo do Aplicativo: 
 
 -----------------------------------------------------------
 
