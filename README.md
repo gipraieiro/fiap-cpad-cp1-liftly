@@ -90,7 +90,8 @@ Tela Resultado:
 Tela Fila:
 ![Fila](./assets/fila.png)
 
-Vídeo do Aplicativo: 
+Vídeo demonstrando o funcionamento do app:
+https://youtube.com/shorts/TsAi32Kq96E?feature=share
 
 -----------------------------------------------------------
 
