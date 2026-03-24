@@ -2,9 +2,13 @@ Liftly — Sistema Inteligente de Elevadores FIAP
 
 
 Integrantes do Grupo e RMs:
+
 Giovanna Praieiro Pavani - 565681;
+
 Julia Aparicio de Souza - 563623;
+
 Maria Eduarda de Oliveira - 565386;
+
 Nicolle Calasans Rosanti - 564381.
 
 
