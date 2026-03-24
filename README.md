@@ -10,12 +10,14 @@ Julia Aparicio de Souza — RM 563623
 Maria Eduarda de Oliveira — RM 565386
 
 Nicolle Calasans Rosanti — RM 564381
+------------------------------------
 
 Sobre o Projeto:
 
 O Liftly é um aplicativo mobile desenvolvido em React Native com o objetivo de melhorar a experiência dos alunos da FIAP no uso dos elevadores.
 
 O problema identificado foi a lotação, demora e desorganização no uso dos elevadores, onde os alunos muitas vezes não conseguem entrar no elevador indicado ou enfrentam longas filas sem previsibilidade.
+-------------------------------
 
 O aplicativo propõe uma solução simples e prática:
 
@@ -24,20 +26,22 @@ O aplicativo propõe uma solução simples e prática:
 2. O sistema indica um elevador disponível.
 
 3. O usuário acompanha o status e sua posição na fila.
+-----------------------------------------------------
 
 Funcionalidades:
 
-Inserção do andar desejado.
+- Inserção do andar desejado.
 
-Indicação de elevador (A, B, C, D, E, F).
+- Indicação de elevador (A, B, C, D, E, F).
 
-Exibição de status do elevador: chegando, cheio ou disponível.
+- Exibição de status do elevador: chegando, cheio ou disponível.
 
-Simulação de fila.
+- Simulação de fila.
 
-Navegação entre telas.
+- Navegação entre telas.
 
-Interface simples e intuitiva.
+- Interface simples e intuitiva.
+-------------------------------
 
 Como Rodar o Projeto:
 
@@ -46,6 +50,7 @@ Pré-requisitos:
 Node.js instalado.
 
 Expo Go (no celular) ou navegador.
+-----------------------------------
 
 Passo a passo:
 
@@ -58,12 +63,14 @@ cd fiap-cpad-cp1-liftly
 npm install
 
 npx expo start
+---------------------
 
 Depois:
 
 Escaneie o QR Code com o Expo Go, ou
 
 Pressione W para abrir no navegador.
+-----------------------------------
 
 Demonstração do Aplicativo:
 
@@ -74,6 +81,7 @@ Tela Resultado: (inserir print aqui)
 Tela Fila: (inserir print aqui)
 
 Vídeo do Aplicativo: (inserir link do vídeo ou GIF aqui)
+-----------------------------------------------------------
 
 Decisões Técnicas:
 
@@ -86,6 +94,7 @@ Uso de useEffect para simular comportamento dinâmico (ex.: movimentação do el
 Navegação implementada com Expo Router.
 
 Projeto dividido em componentes para melhor organização.
+--------------------------------------------------------
 
 Próximos Passos:
 
@@ -96,6 +105,7 @@ Atualização em tempo real.
 Sistema de notificações.
 
 Melhorias na interface e experiência do usuário.
+-----------------------------------------------------
 
 Considerações Finais:
 
