@@ -82,12 +82,15 @@ Pressione W para abrir no navegador.
 Demonstração do Aplicativo:
 
 Tela Home:
+
 ![Home](./assets/home.png)
 
 Tela Resultado:
+
 ![Resultado](./assets/resultado.png)
 
 Tela Fila:
+
 ![Fila](./assets/fila.png)
 
 Vídeo demonstrando o funcionamento do app:
